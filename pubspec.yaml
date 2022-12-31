@@ -1,15 +1,19 @@
 name: mad2_shop
 description: Shop page for JagHub for FBLA's Coding and Programming event. 2022-23.
 
-version: 1.0.1
+version: 1.1.0
 
 environment:
   sdk: '>=2.18.5 <3.0.0'
 
 dependencies:
+  intl: 0.17.0
   flutter:
     sdk: flutter
   cupertino_icons: ^1.0.2
+  mad2_db_dataobjects: ^1.1.0
+  fluttertoast: ^8.1.2
+  webview_flutter: ^4.0.1
 
 dev_dependencies:
   flutter_test:
@@ -18,4 +22,16 @@ dev_dependencies:
 
 flutter:
   uses-material-design: true
+  fonts:
+    - family: Montserrat
+      fonts:
+        - asset: assets/Montserrat-Regular.ttf
+        - asset: assets/Montserrat-Medium.ttf
+        - asset: assets/Montserrat-SemiBold.ttf  
+        - asset: assets/Montserrat-Bold.ttf
+        - asset: assets/Montserrat-ExtraBold.ttf
+
+  assets: 
+    - assets/DenLogo.jpg
+   
 

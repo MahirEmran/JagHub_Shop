@@ -1,2 +1,2 @@
 Shop page for JagHub
-1.0.1
+1.0.2
