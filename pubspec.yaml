@@ -1,7 +1,7 @@
 name: mad2_shop
 description: Shop page for JagHub for FBLA's Coding and Programming event. 2022-23.
 
-version: 1.2.8
+version: 1.2.9
 
 environment:
   sdk: '>=2.18.5 <3.0.0'
@@ -11,7 +11,7 @@ dependencies:
   flutter:
     sdk: flutter
   cupertino_icons: ^1.0.2
-  mad2_db_dataobjects: ^1.1.9
+  mad2_db_dataobjects: ^1.2.1
   fluttertoast: ^8.1.2
   webview_flutter: ^4.0.1
 
