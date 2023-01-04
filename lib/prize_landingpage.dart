@@ -25,12 +25,13 @@ class _PrizeLandingPageState extends State<PrizeLandingPage> {
   late UserData userInfo;
   late PrizeData prizeInfo;
   late Widget buyItemFAB;
+  late String itemCost;
 
   _PrizeLandingPageState(currentUser, prize) {
     userInfo = currentUser;
     prizeInfo = prize;
 
-    if (userInfo.points >= prizeInfo.pointCost && prizeInfo.buyable) {
+    if (userInfo.spendablePoints >= prizeInfo.pointCost && prizeInfo.buyable) {
       buyItemFAB = Padding(
         padding: EdgeInsets.fromLTRB(0, 0, 0, 25),
         child: FloatingActionButton.extended(
@@ -57,7 +58,8 @@ class _PrizeLandingPageState extends State<PrizeLandingPage> {
               Navigator.of(context).pushReplacement(
                 MaterialPageRoute(
                   builder: (context) => ConfirmationPage(
-                    prize: prizeInfo,
+                    code: code,
+                    comingFromBuyPage: true,
                   ),
                 ),
               );
@@ -65,14 +67,17 @@ class _PrizeLandingPageState extends State<PrizeLandingPage> {
           },
           isExtended: true,
           materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,
-          label: Text('Buy Now',
-              style: TextStyle(
-                letterSpacing: 1.0,
-                fontFamily: 'Montserrat',
-                fontWeight: FontWeight.w600,
-                fontSize: 16,
-                color: Color.fromARGB(255, 0, 0, 0),
-              )),
+          label: Padding(
+            padding: EdgeInsets.fromLTRB(10, 5, 10, 5),
+            child: Text('Buy Now',
+                style: TextStyle(
+                  letterSpacing: 1.0,
+                  fontFamily: 'Montserrat',
+                  fontWeight: FontWeight.w600,
+                  fontSize: 20,
+                  color: Color.fromARGB(255, 0, 0, 0),
+                )),
+          ),
         ),
       );
     } else {
@@ -91,14 +96,17 @@ class _PrizeLandingPageState extends State<PrizeLandingPage> {
           },
           isExtended: true,
           materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,
-          label: Text('Cannot Buy',
-              style: TextStyle(
-                letterSpacing: 1.0,
-                fontFamily: 'Montserrat',
-                fontWeight: FontWeight.w600,
-                fontSize: 16,
-                color: Color.fromARGB(255, 0, 0, 0),
-              )),
+          label: Padding(
+            padding: EdgeInsets.fromLTRB(10, 5, 10, 5),
+            child: Text('Cannot Buy',
+                style: TextStyle(
+                  letterSpacing: 1.0,
+                  fontFamily: 'Montserrat',
+                  fontWeight: FontWeight.w600,
+                  fontSize: 20,
+                  color: Color.fromARGB(255, 0, 0, 0),
+                )),
+          ),
         ),
       );
     }
@@ -115,6 +123,11 @@ class _PrizeLandingPageState extends State<PrizeLandingPage> {
 
   @override
   Widget build(BuildContext context) {
+    if (prizeInfo.buyable) {
+      itemCost = prizeInfo.pointCost.toString();
+    } else {
+      itemCost = 'N/A';
+    }
     return Scaffold(
       floatingActionButtonLocation: FloatingActionButtonLocation.endDocked,
       floatingActionButton: buyItemFAB,
@@ -219,7 +232,7 @@ class _PrizeLandingPageState extends State<PrizeLandingPage> {
                                                         ),
                                                       ),
                                                       Text(
-                                                        userInfo.points
+                                                        userInfo.spendablePoints
                                                             .toString(),
                                                         style: TextStyle(
                                                           fontWeight:
@@ -302,7 +315,7 @@ class _PrizeLandingPageState extends State<PrizeLandingPage> {
                                         ),
                                       ),
                                       Text(
-                                        prizeInfo.pointCost.toString(),
+                                        itemCost,
                                         style: TextStyle(
                                           color: Colors.black,
                                           fontFamily: 'Montserrat',
@@ -379,20 +392,14 @@ class _PrizeLandingPageState extends State<PrizeLandingPage> {
                                 decoration: BoxDecoration(
                                   color: Color.fromARGB(255, 255, 255, 255),
                                 ),
-                                child: Row(
-                                  mainAxisSize: MainAxisSize.max,
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: [
-                                    Text(
-                                      prizeInfo.details,
-                                      style: TextStyle(
-                                        fontFamily: 'Montserrat',
-                                        fontWeight: FontWeight.w500,
-                                        color: Colors.black,
-                                        fontSize: 14,
-                                      ),
-                                    ),
-                                  ],
+                                child: Text(
+                                  prizeInfo.details,
+                                  style: TextStyle(
+                                    fontFamily: 'Montserrat',
+                                    fontWeight: FontWeight.w500,
+                                    color: Colors.black,
+                                    fontSize: 14,
+                                  ),
                                 ),
                               ),
                             ),

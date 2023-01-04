@@ -19,7 +19,9 @@ class _DenPageState extends State<DenPage> {
       ..setNavigationDelegate(
         NavigationDelegate(
           onProgress: (int progress) {
-            // Update loading bar.
+            CircularProgressIndicator(
+              color: Colors.black,
+            );
           },
           onPageStarted: (String url) {},
           onPageFinished: (String url) {},
@@ -32,7 +34,8 @@ class _DenPageState extends State<DenPage> {
           },
         ),
       )
-      ..loadRequest(Uri.parse('https://flutter.dev'));
+      ..loadRequest(Uri.parse(
+          'https://sites.google.com/apps.nsd.org/nchsstudentstore/products'));
   }
 
   @override
@@ -43,68 +46,67 @@ class _DenPageState extends State<DenPage> {
         mainAxisSize: MainAxisSize.max,
         children: [
           Expanded(
-            child: SingleChildScrollView(
-              child: Column(
-                mainAxisSize: MainAxisSize.max,
-                children: [
-                  Stack(
-                    children: [
-                      Container(
-                        width: MediaQuery.of(context).size.width,
-                        constraints: BoxConstraints(
-                            minHeight: MediaQuery.of(context).size.height),
-                        decoration: BoxDecoration(
-                          color: Colors.white,
-                        ),
-                        child: Column(
-                          mainAxisSize: MainAxisSize.max,
-                          children: [
-                            Padding(
-                              padding:
-                                  EdgeInsetsDirectional.fromSTEB(15, 30, 25, 0),
-                              child: Row(
-                                mainAxisSize: MainAxisSize.max,
-                                children: [
-                                  InkWell(
-                                    onTap: () {
-                                      Navigator.pop(context);
-                                    },
-                                    child: Container(
-                                      width: 50,
-                                      height: 50,
-                                      decoration: BoxDecoration(
-                                        color: Colors.white,
-                                      ),
-                                      child: Icon(
-                                        Icons.arrow_back_rounded,
-                                        color: Colors.black,
-                                        size: 36,
-                                      ),
+            child: Column(
+              mainAxisSize: MainAxisSize.max,
+              children: [
+                Stack(
+                  children: [
+                    Container(
+                      width: MediaQuery.of(context).size.width,
+                      constraints: BoxConstraints(
+                          minHeight: MediaQuery.of(context).size.height),
+                      decoration: BoxDecoration(
+                        color: Colors.white,
+                      ),
+                      child: Column(
+                        mainAxisSize: MainAxisSize.max,
+                        children: [
+                          Padding(
+                            padding:
+                                EdgeInsetsDirectional.fromSTEB(15, 30, 25, 0),
+                            child: Row(
+                              mainAxisSize: MainAxisSize.max,
+                              children: [
+                                InkWell(
+                                  onTap: () {
+                                    Navigator.pop(context);
+                                  },
+                                  child: Container(
+                                    width: 50,
+                                    height: 50,
+                                    decoration: BoxDecoration(
+                                      color: Colors.white,
+                                    ),
+                                    child: Icon(
+                                      Icons.arrow_back_rounded,
+                                      color: Colors.black,
+                                      size: 36,
                                     ),
                                   ),
-                                ],
-                              ),
+                                ),
+                              ],
                             ),
-                            Padding(
-                              padding:
-                                  EdgeInsetsDirectional.fromSTEB(0, 10, 0, 0),
+                          ),
+                          Padding(
+                            padding: EdgeInsetsDirectional.fromSTEB(0, 5, 0, 0),
+                            child: SingleChildScrollView(
                               child: Container(
                                 color: Colors.white,
                                 width: MediaQuery.of(context).size.width * .95,
                                 height:
-                                    MediaQuery.of(context).size.height * .90,
+                                    MediaQuery.of(context).size.height * .85,
                                 child: WebViewWidget(
                                   controller: controller,
                                 ),
                               ),
                             ),
-                          ],
-                        ),
+                          ),
+                        ],
                       ),
-                    ],
-                  ),
-                ],
-              ),
+                    ),
+                  ],
+                ),
+              ],
             ),
           ),
         ],

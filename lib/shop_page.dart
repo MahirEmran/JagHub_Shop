@@ -66,7 +66,7 @@ class _ShopPageState extends State<ShopPage> {
                           },
                           child: Container(
                             width: MediaQuery.of(context).size.width * 0.42,
-                            height: MediaQuery.of(context).size.height * 0.22,
+                            height: MediaQuery.of(context).size.height * .22,
                             decoration: BoxDecoration(
                               color: Color(0xFFF1F4F8),
                               borderRadius: BorderRadius.circular(20),
@@ -83,7 +83,6 @@ class _ShopPageState extends State<ShopPage> {
                                     height: MediaQuery.of(context).size.height *
                                         0.12,
                                     decoration: BoxDecoration(
-                                      color: Colors.white,
                                       borderRadius: BorderRadius.only(
                                         bottomLeft: Radius.circular(0),
                                         bottomRight: Radius.circular(0),
@@ -183,7 +182,7 @@ class _ShopPageState extends State<ShopPage> {
                           },
                           child: Container(
                             width: MediaQuery.of(context).size.width * 0.42,
-                            height: MediaQuery.of(context).size.height * 0.22,
+                            height: MediaQuery.of(context).size.height * .22,
                             decoration: BoxDecoration(
                               color: Color(0xFFF1F4F8),
                               borderRadius: BorderRadius.circular(20),
@@ -623,16 +622,26 @@ class _ShopPageState extends State<ShopPage> {
                                                           size: 24,
                                                         ),
                                                       ),
-                                                      Text(
-                                                        currentUser.points
-                                                            .toString(),
-                                                        style: TextStyle(
-                                                          fontFamily:
-                                                              'Montserrat',
-                                                          color: Colors.white,
-                                                          fontWeight:
-                                                              FontWeight.w600,
-                                                          fontSize: 20,
+                                                      Container(
+                                                        width: 50,
+                                                        child: FittedBox(
+                                                          fit: BoxFit.scaleDown,
+                                                          child: Text(
+                                                            currentUser
+                                                                .spendablePoints
+                                                                .toString(),
+                                                            maxLines: 1,
+                                                            style: TextStyle(
+                                                              fontFamily:
+                                                                  'Montserrat',
+                                                              color:
+                                                                  Colors.white,
+                                                              fontWeight:
+                                                                  FontWeight
+                                                                      .w600,
+                                                              fontSize: 20,
+                                                            ),
+                                                          ),
                                                         ),
                                                       ),
                                                     ],
@@ -753,6 +762,7 @@ class _ShopPageState extends State<ShopPage> {
                               ),
                             ),
                             for (Widget item in prizeItems) (item),
+                            SizedBox(height: 50),
                           ],
                         ),
                       ),
