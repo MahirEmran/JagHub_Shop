@@ -588,23 +588,6 @@ class _ShopPageState extends State<ShopPage> {
                                                     MainAxisAlignment
                                                         .spaceAround,
                                                 children: [
-                                                  Padding(
-                                                    padding:
-                                                        EdgeInsetsDirectional
-                                                            .fromSTEB(
-                                                                0, 0, 10, 0),
-                                                    child: Text(
-                                                      'Available',
-                                                      style: TextStyle(
-                                                        fontFamily:
-                                                            'Montserrat',
-                                                        color: Colors.white,
-                                                        fontSize: 16,
-                                                        fontWeight:
-                                                            FontWeight.w500,
-                                                      ),
-                                                    ),
-                                                  ),
                                                   Row(
                                                     mainAxisSize:
                                                         MainAxisSize.max,
@@ -615,7 +598,7 @@ class _ShopPageState extends State<ShopPage> {
                                                         padding:
                                                             EdgeInsetsDirectional
                                                                 .fromSTEB(
-                                                                    0, 0, 3, 0),
+                                                                    5, 0, 3, 0),
                                                         child: Icon(
                                                           Icons.star_rounded,
                                                           color: Colors.white,
@@ -623,24 +606,18 @@ class _ShopPageState extends State<ShopPage> {
                                                         ),
                                                       ),
                                                       Container(
-                                                        width: 50,
-                                                        child: FittedBox(
-                                                          fit: BoxFit.scaleDown,
-                                                          child: Text(
-                                                            currentUser
-                                                                .spendablePoints
-                                                                .toString(),
-                                                            maxLines: 1,
-                                                            style: TextStyle(
-                                                              fontFamily:
-                                                                  'Montserrat',
-                                                              color:
-                                                                  Colors.white,
-                                                              fontWeight:
-                                                                  FontWeight
-                                                                      .w600,
-                                                              fontSize: 20,
-                                                            ),
+                                                        child: Text(
+                                                          currentUser
+                                                              .spendablePoints
+                                                              .toString(),
+                                                          maxLines: 1,
+                                                          style: TextStyle(
+                                                            fontFamily:
+                                                                'Montserrat',
+                                                            color: Colors.white,
+                                                            fontWeight:
+                                                                FontWeight.w600,
+                                                            fontSize: 20,
                                                           ),
                                                         ),
                                                       ),

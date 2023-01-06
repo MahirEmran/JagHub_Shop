@@ -3,6 +3,7 @@ import 'shop_page.dart';
 import 'package:mad2_db_dataobjects/API.dart';
 import 'package:mad2_db_dataobjects/prize_data.dart';
 import 'package:mad2_db_dataobjects/user_data.dart';
+import 'package:mad2_navbar/navigation.dart';
 
 class ConfirmationPage extends StatefulWidget {
   String code;
@@ -36,10 +37,10 @@ class _ConfirmationPageState extends State<ConfirmationPage> {
 
   Future<bool> _onBackPressed() {
     if (checkNav) {
-      Navigator.of(context).pop(ShopPage());
+      Navigator.of(context).pop(Navigation());
       Navigator.pushReplacement(
         context,
-        MaterialPageRoute(builder: (context) => ShopPage()),
+        MaterialPageRoute(builder: (context) => Navigation()),
       );
     } else {
       Navigator.pop(context);
