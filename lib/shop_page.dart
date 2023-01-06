@@ -598,7 +598,7 @@ class _ShopPageState extends State<ShopPage> {
                                                         padding:
                                                             EdgeInsetsDirectional
                                                                 .fromSTEB(
-                                                                    5, 0, 3, 0),
+                                                                    0, 0, 3, 0),
                                                         child: Icon(
                                                           Icons.star_rounded,
                                                           color: Colors.white,
@@ -739,7 +739,7 @@ class _ShopPageState extends State<ShopPage> {
                               ),
                             ),
                             for (Widget item in prizeItems) (item),
-                            SizedBox(height: 50),
+                            SizedBox(height: 100),
                           ],
                         ),
                       ),
