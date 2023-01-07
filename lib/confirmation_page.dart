@@ -36,15 +36,7 @@ class _ConfirmationPageState extends State<ConfirmationPage> {
   }
 
   Future<bool> _onBackPressed() {
-    if (checkNav) {
-      Navigator.of(context).pop(Navigation());
-      Navigator.pushReplacement(
-        context,
-        MaterialPageRoute(builder: (context) => Navigation()),
-      );
-    } else {
-      Navigator.pop(context);
-    }
+    Navigator.pop(context);
     return false as Future<bool>;
   }
 
