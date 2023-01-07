@@ -390,17 +390,7 @@ class _ConfirmationPageState extends State<ConfirmationPage> {
                                   children: [
                                     InkWell(
                                       onTap: () {
-                                        if (checkNav) {
-                                          Navigator.of(context).pop(ShopPage());
-                                          Navigator.pushReplacement(
-                                              context,
-                                              MaterialPageRoute(
-                                                builder: (context) =>
-                                                    ShopPage(),
-                                              ));
-                                        } else {
-                                          Navigator.pop(context);
-                                        }
+                                        Navigator.pop(context);
                                       },
                                       child: Container(
                                         width: 50,
